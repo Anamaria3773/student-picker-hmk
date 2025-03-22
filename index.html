@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Picker</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Student picker</h1>
+
+        <div class="add-student">
+            <h2>Add a student</h2>
+            <div class="input-button-container"> 
+                <input type="text" id="studentName" placeholder="Enter student name">
+                <input type="color" id="studentColor">
+                <button onclick="addStudent()">Add student</button>
+            </div>
+        </div>
+
+        <div class="student-list">
+            <h2>Student list:</h2>
+            <ul id="studentList"></ul>
+        </div>
+
+        <div class="pick-random">
+            <h2>Pick a random student:</h2>
+            <div id="selectedStudent" class="student-card">
+                <img src="Sample_User_Icon.png" alt="User Icon" class="user-icon">
+            </div>
+            <button onclick="pickRandomStudent()" class="pick-btn">Pick a student</button>
+        </div>
+    </div>
+</body>
+</html>
