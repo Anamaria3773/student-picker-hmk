@@ -14,18 +14,20 @@ function getAvatarUrl(name) {
 }
 
 function addStudent() {
-    const name = document.getElementById("studentName").value.trim();
+    const nameInput = document.querySelector("#studentName");
+    const colorInput = document.querySelector("#studentColor");
+    const name = nameInput.value.trim();
     if (!name) return;
-    let color = document.getElementById("studentColor").value;
+    let color = colorInput.value;
     const student = { name, color, avatar: getAvatarUrl(name) };
     students.push(student);
     displayStudents();
-    document.getElementById("studentName").value = "";
-    document.getElementById("studentColor").value = getRandomColor();
+    nameInput.value = "";
+    colorInput.value = getRandomColor();
 }
 
 function displayStudents() {
-    const list = document.getElementById("studentList");
+    const list = document.querySelector("#studentList");
     list.innerHTML = "";
     students.forEach((student, index) => {
         const li = document.createElement("li");
@@ -48,18 +50,18 @@ function removeStudent(index) {
 function pickRandomStudent() {
     if (students.length === 0) return;
     const student = students[Math.floor(Math.random() * students.length)];
-    const card = document.getElementById("selectedStudent");
+    const card = document.querySelector("#selectedStudent");
     card.style.borderColor = student.color;
     card.innerHTML = `<img src='${student.avatar}' width='100'>`;
 }
 
 window.onload = function() {
-    document.getElementById("studentColor").value = getRandomColor();
+    document.querySelector("#studentColor").value = getRandomColor();
 };
 
-document.getElementById("studentColor").addEventListener("change", function() {
+document.querySelector("#studentColor").addEventListener("change", function() {
     const selectedColor = this.value;
-    const studentName = document.getElementById("studentName").value.trim();
+    const studentName = document.querySelector("#studentName").value.trim();
     if (studentName) {
         const student = students.find(s => s.name === studentName);
         if (student) {
